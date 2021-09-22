@@ -4,11 +4,9 @@ This app demonstrates using undici and https to make client requests.  It is int
 # To use
 **Note**: You must have a New Relic account set up and pass in license and app name via env vars
 
-Currently both the agent and undici haven't been released to support this.  You must clone the following repos
+Currently the agent hasn't been released to support this.  You must clone the following repos
 
 ```
-git clone https://github.com/nodejs/undici.git
-cd undici && npm install && npm link
 git@github.com:bizob2828/node-newrelic.git
 cd node-newrelic && git checkout undici-prototype && npm intall && npm link
 ```
@@ -16,7 +14,8 @@ cd node-newrelic && git checkout undici-prototype && npm intall && npm link
 
 ```
 npm ci
-npm link undici newrelic
+npm link newrelic
+# Add feature flag to config `{ feature_flag: { undici_instrumentation: true } }`
 NEW_RELIC_LICENSE_KEY=<key> NEW_RELIC_APP_NAME=<app name> node -r newrelic index.js
 ```
 
